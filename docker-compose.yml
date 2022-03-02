@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  node:
+    build:
+      context: ./
+      args:
+        - PGID=${PGID}
+        - PUID=${PUID}
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./:/srv/app
+    working_dir: /srv/app
+    command: 'npm run serve'
