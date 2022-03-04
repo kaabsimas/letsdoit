@@ -18,9 +18,9 @@
                                     v-text="item.nome" 
                                     v-bind:class="{'text-decoration-line-through': item.done}"
                                 ></v-list-item-title>
-                                <v-lit-item-subtitle>
+                                <v-list-item-subtitle>
                                     {{ item.description }}
-                                </v-lit-item-subtitle>
+                                </v-list-item-subtitle>
                                 <v-divider v-if="index < items.length-1"></v-divider>
                             </v-list-item-content>
                         </v-list-item>

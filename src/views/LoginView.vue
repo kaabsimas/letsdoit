@@ -56,8 +56,13 @@ export default({
         }
     },
     methods: {
-        entrar() {
-            this.$v.touch()
+        async entrar() {
+            this.$v.$touch()
+            if(! this.$v.$invalid) {
+                await fetch('/login', {method: 'post'}).then(() => {
+                    this.$router.replace({ name: "lista" });
+                });
+            }
         }
     },
     validations: {

@@ -4,6 +4,10 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
 
+const {worker} = require('./mocks/browser')
+
+worker.start()
+
 Vue.config.productionTip = false
 
 new Vue({

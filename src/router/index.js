@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView'
 import ListView from '../views/ListView'
+import store from '../store/index'
 
 Vue.use(VueRouter)
 
@@ -30,7 +31,14 @@ const routes = [
   {
     path: '/lista',
     name: 'lista',
-    component: ListView
+    component: ListView,
+    beforeEnter: (to, from, next) => {
+      if(store.state.authenticated == false) {
+        return {name: 'Login'}
+      } else {
+        next()
+      }
+    }
   }
 ]
 

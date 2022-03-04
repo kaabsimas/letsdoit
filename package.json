@@ -21,6 +21,7 @@
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "msw": "^0.38.2",
     "sass": "~1.32.0",
     "sass-loader": "^10.0.0",
     "vue-cli-plugin-vuetify": "~2.4.6",
@@ -47,5 +48,8 @@
     "not dead"
   ],
   "_id": "app@0.1.0",
-  "readme": "ERROR: No README data found!"
+  "readme": "ERROR: No README data found!",
+  "msw": {
+    "workerDirectory": "public"
+  }
 }
