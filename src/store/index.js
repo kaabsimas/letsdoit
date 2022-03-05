@@ -10,6 +10,13 @@ export default new Vuex.Store({
   getters: {
   },
   mutations: {
+    initialiseStore(state) {
+			if(sessionStorage.getItem('state')) {
+				this.replaceState(
+					Object.assign(state, JSON.parse(sessionStorage.getItem('state')))
+				);
+			}
+		},
     setAuthentication(state, status) {
       state.authenticated = status
     }

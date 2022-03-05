@@ -10,8 +10,6 @@ export const handlers = [
     rest.get('/user', (req, res, ctx) => {
         const isAuthenticated = store.state.authenticated
 
-        console.log(typeof isAuthenticated, isAuthenticated)
-
         if(! isAuthenticated) {
             return res(
                 ctx.status(403),

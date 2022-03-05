@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView'
 import ListView from '../views/ListView'
+import CreateView from '../views/CreateView'
 import store from '../store/index'
 
 Vue.use(VueRouter)
@@ -10,8 +10,8 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'login',
+    component: LoginView
   },
   {
     path: '/about',
@@ -24,17 +24,26 @@ const routes = [
     }
   },
   {
-    path: '/login',
-    name: 'login',
-    component: LoginView
-  },
-  {
     path: '/lista',
     name: 'lista',
     component: ListView,
     beforeEnter: (to, from, next) => {
+      store.commit('initialiseStore');
       if(store.state.authenticated == false) {
-        return {name: 'Login'}
+        next(from)
+      } else {
+        next()
+      }
+    }
+  },
+  {
+    path: '/create',
+    name: 'create',
+    component: CreateView,
+    beforeEnter: (to, from, next) => {
+      store.commit('initialiseStore');
+      if(store.state.authenticated == false) {
+        next(from)
       } else {
         next()
       }

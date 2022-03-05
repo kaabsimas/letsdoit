@@ -10,9 +10,17 @@ worker.start()
 
 Vue.config.productionTip = false
 
+store.subscribe((mutation, state) => {
+  console.log("Atualizando estado", JSON.stringify(state))
+  sessionStorage.setItem('state', JSON.stringify(state))
+})
+
 new Vue({
   router,
   store,
   vuetify,
-  render: function (h) { return h(App) }
+  render: function (h) { return h(App) },
+  beforeCreate() {
+		this.$store.commit('initialiseStore');
+	}
 }).$mount('#app')
