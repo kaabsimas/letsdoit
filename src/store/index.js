@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    authenticated: false
+    authenticated: false,
+    list: []
   },
   getters: {
   },
@@ -19,6 +20,12 @@ export default new Vuex.Store({
 		},
     setAuthentication(state, status) {
       state.authenticated = status
+    },
+    addListItem(state, item) {
+      state.list.push(item)
+    },
+    updateList(state, list) {
+      state.list = list
     }
   },
   actions: {
